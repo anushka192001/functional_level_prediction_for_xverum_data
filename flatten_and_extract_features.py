@@ -236,7 +236,7 @@ map_dict = {'operations':'operations', 'finance':'finance', 'purchase':'finance'
 
 def get_text_and_labels(xverum_file_path,join_entries=True,exclude_duplicate_entries=True):
     data = json.load(xverum_file_path)
-    ref_dir = './'
+    ref_dir = '/Users/anushkasingh/Desktop/data preparation for i million dataset 2/data_preparation_pipeline_22_may_2024/ref_data/'
     xvde = XverumDataExtractor(ref_dir,
                                exclude_clodura_introduced_keys=False,
                                join_entries=True,
@@ -265,7 +265,7 @@ def get_text_and_labels(xverum_file_path,join_entries=True,exclude_duplicate_ent
   "xverum_json education",
   "xverum_json courses"        
    ] 
-    filtered_df = filtered_df[desired_order] 
+    filtered_df = filtered_df[[col for col in desired_order if col in filtered_df.columns]] 
     IDS,T,L = clean_and_concatenate_fields_in_dataframe(filtered_df,'clodura_extracted functional_level')
 
     L_modified = []
@@ -300,7 +300,7 @@ def get_text_and_labels(xverum_file_path,join_entries=True,exclude_duplicate_ent
 
 def get_text_and_labels_non_clodura_extracted(xverum_file_path,join_entries=True,exclude_duplicate_entries=True):
     data = json.load(xverum_file_path)
-    ref_dir = './'
+    ref_dir = '/Users/anushkasingh/Desktop/data preparation for i million dataset 2/data_preparation_pipeline_22_may_2024/ref_data/'
     xvde = XverumDataExtractor(ref_dir, 
                                exclude_clodura_introduced_keys=False,
                                join_entries=True,
@@ -329,9 +329,9 @@ def get_text_and_labels_non_clodura_extracted(xverum_file_path,join_entries=True
   "xverum_json projects",
   "xverum_json education",
   "xverum_json courses"        
-   ] 
-
-    filtered_df = filtered_df[desired_order] 
+   ]
+      
+    filtered_df = filtered_df[[col for col in desired_order if col in filtered_df.columns]]
     IDS, T = clean_and_concatenate_fields_in_dataframe_non_clodura_extracted(filtered_df,'clodura_extracted functional_level')
     data = {
     "linkedin_id": IDS,
