@@ -236,7 +236,7 @@ map_dict = {'operations':'operations', 'finance':'finance', 'purchase':'finance'
 
 def get_text_and_labels(xverum_file_path,join_entries=True,exclude_duplicate_entries=True):
     data = json.load(xverum_file_path)
-    ref_dir = '/Users/anushkasingh/Desktop/data preparation for i million dataset 2/data_preparation_pipeline_22_may_2024/ref_data/'
+    ref_dir = './'
     xvde = XverumDataExtractor(ref_dir,
                                exclude_clodura_introduced_keys=False,
                                join_entries=True,
@@ -300,7 +300,7 @@ def get_text_and_labels(xverum_file_path,join_entries=True,exclude_duplicate_ent
 
 def get_text_and_labels_non_clodura_extracted(xverum_file_path,join_entries=True,exclude_duplicate_entries=True):
     data = json.load(xverum_file_path)
-    ref_dir = '/Users/anushkasingh/Desktop/data preparation for i million dataset 2/data_preparation_pipeline_22_may_2024/ref_data/'
+    ref_dir = './'
     xvde = XverumDataExtractor(ref_dir, 
                                exclude_clodura_introduced_keys=False,
                                join_entries=True,
